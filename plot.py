@@ -18,8 +18,8 @@ K_IN_M = 1000.0
 REBUF_P = 4.3
 SMOOTH_P = 1
 
-SCHEMES = ['sim_oboebola', 'sim_oboempc', 'sim_oboehyb']
-labels = ['Oboe-BOLA', 'Oboe-MPC', 'Oboe-HYB']
+SCHEMES = ['sim_oboempc', 'sim_rl']
+labels = ['Oboe-MPC', 'Pensieve']
 LW = 1.5
 
 def main():
