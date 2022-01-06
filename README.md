@@ -39,7 +39,9 @@ pip install matplotlib
 python plot.py
 ```
 
-Results are reported in *details/cdf.png'*. Moreover, we plot the comparison of the performance of this repo. and the original paper here.
+Results are reported in *details/cdf.png'*. Moreover, we plot the comparison of the performance of this repo. and the original paper here. 
+
+Here left: the original paper, right: our implementation.
 
 <p align="center">
     <img src="details/oboe-paper.png" width="40%"><img src="details/cdf.png" width="40%">
