@@ -2,7 +2,7 @@ import numpy as np
 import fixed_env as env
 import load_trace
 import configmap_mpc
-import bayesian_changepoint_detection.online_changepoint_detection as oncd
+import online_changepoint_detection as oncd
 from functools import partial
 import mpc
 

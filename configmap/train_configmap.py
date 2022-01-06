@@ -88,17 +88,18 @@ def single_step(mu, sigma):
 
 if __name__ == '__main__':
     configmap = {}
-    from tqdm import tqdm
-    import json
-    for mu in tqdm(range(5, 60)):
-        for sigma in tqdm(range(1, 40)):
+    # 0.5mbps - 6mbps
+    for mu in range(5, 60):
+        for sigma in range(1, 40):
             mu_ = mu / 10.
             sigma_ = sigma / 10.
             best_params = single_step(mu_, sigma_)
             configmap[(int(mu_ * 1000), int(sigma_ * 1000))] = list(best_params)
 
-    f = open('configmap_mpc.py', 'w')
+    f = open('../src/configmap_mpc.py', 'w')
     f.write('configmap_mpc_oboe_900 = ')
     print(configmap, file=f)
     f.close()
+
+    print('done')
     

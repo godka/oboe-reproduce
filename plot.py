@@ -5,7 +5,7 @@ from matplotlib.pyplot import plot, savefig
 import matplotlib
 import sys
 
-RESULTS_FOLDER = './test_results/'
+RESULTS_FOLDER = './src/test_results/'
 if len(sys.argv) > 1:
     RESULTS_FOLDER = sys.argv[1]
 NUM_BINS = 1000
@@ -19,8 +19,8 @@ REBUF_P = 4.3
 SMOOTH_P = 1
 
 SCHEMES = ['sim_oboempc', 'sim_rl']
-labels = ['Oboe-MPC', 'Pensieve']
-LW = 1.5
+labels = ['MPC+Oboe', 'Pensieve']
+LW = 3.1
 
 def main():
 
@@ -107,21 +107,21 @@ def main():
     # CDF
     # ---- ---- ---- ----
 
-    plt.rcParams['axes.labelsize'] = 14
-    font = {'size': 14}
+    plt.rcParams['axes.labelsize'] = 16
+    font = {'size': 16}
     matplotlib.rc('font', **font)
     #matplotlib.rc('text', usetex=True)
-    fig, ax = plt.subplots(figsize=(6, 4))
-    plt.subplots_adjust(left=0.13, bottom=0.15, right=0.97, top=0.97)
+    fig, ax = plt.subplots(figsize=(4.5, 3))
+    plt.subplots_adjust(left=0.17, bottom=0.19, right=0.97, top=0.96)
 
-    lines = ['-', '--', '-.', ':', '--']
+    lines = ['-', ':', '-.', '--', '--']
     #colors = ['red', 'blue', 'orange', 'green', 'black']
 
     def rgb_to_hex(rr, gg, bb):
         rgb = (rr, gg, bb)
         return '#%02x%02x%02x' % rgb
 
-    colors = [rgb_to_hex(237, 65, 29), rgb_to_hex(102, 49, 160), rgb_to_hex(
+    colors = [rgb_to_hex(102, 49, 160), rgb_to_hex(237, 65, 29), rgb_to_hex(
         255, 192, 0), rgb_to_hex(29, 29, 29), rgb_to_hex(0, 212, 97)]
         
     for (scheme, color, line, label) in zip(SCHEMES, colors, lines, labels):
@@ -132,9 +132,10 @@ def main():
 
     ax.legend(framealpha=1,
               frameon=False, fontsize=14)
-    ax.spines['right'].set_visible(False)
-    ax.spines['top'].set_visible(False)
+    # ax.spines['right'].set_visible(False)
+    # ax.spines['top'].set_visible(False)
     plt.ylim(0., 1.)
+    plt.xlim(-0.5, 4.3)
     plt.ylabel('CDF')
     plt.xlabel('Average QoE')
     savefig('details/cdf.png')
